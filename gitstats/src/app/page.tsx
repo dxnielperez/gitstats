@@ -2,24 +2,18 @@
 import { useState } from "react";
 import { ProfileDisplay, Username } from "./components";
 
-interface ProfileData {
+interface ApiResponse {
   login: string;
   name?: string;
   bio?: string;
   public_repos: number;
   followers: number;
   avatar_url: string;
-}
-
-interface RepoData {
-  name: string;
-  stargazers_count: number;
-  forks_count: number;
-}
-
-interface ApiResponse {
-  user: ProfileData;
-  repos: RepoData[];
+  repos: {
+    name: string;
+    stargazers_count: number;
+    forks_count: number;
+  }[];
   languages: { [key: string]: number };
 }
 

@@ -18,7 +18,7 @@ export function Username({
   }
 
   return (
-    <form className="p-2" onSubmit={handleSubmit}>
+    <form className="p-2 flex flex-col w-1/4 mx-auto" onSubmit={handleSubmit}>
       <label htmlFor="username" className="text-white">
         Username:
       </label>

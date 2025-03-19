@@ -1,21 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ProfileDisplay, Username } from "./components";
-
-interface ApiResponse {
-  login: string;
-  name?: string;
-  bio?: string;
-  public_repos: number;
-  followers: number;
-  avatar_url: string;
-  repos: {
-    name: string;
-    stargazers_count: number;
-    forks_count: number;
-  }[];
-  languages: { [key: string]: number };
-}
+import { ApiResponse } from "./types";
 
 export default function Home() {
   const [data, setData] = useState<ApiResponse | null>(null);
@@ -39,7 +25,7 @@ export default function Home() {
   console.log("data", data);
   return (
     <div>
-      <div className="w-min mx-auto">
+      <div className="max-w-5xl w-full mx-auto flex flex-col px-4 mb-20">
         <Username onSubmitAction={handleFetch} />
         <ProfileDisplay data={data} error={error} />
       </div>
